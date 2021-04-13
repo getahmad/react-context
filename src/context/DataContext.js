@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import { listReducer } from "../reducers/listReducer";
 
 export const DataContext = createContext();
 
@@ -10,10 +11,11 @@ const initialState = [
 ];
 
 export const DataProvider = (props) => {
-  const [lists, setLists] = useState(initialState);
+  const [lists, dispatch] = useReducer(listReducer, initialState);
 
+  
   return (
-    <DataContext.Provider value={{ lists }}>
+    <DataContext.Provider value={{ lists, dispatch }}>
       {props.children}
     </DataContext.Provider>
   );

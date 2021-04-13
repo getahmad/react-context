@@ -1,9 +1,13 @@
 import React from "react";
+import Form from "./components/Form";
+import Todos from "./components/Todos";
 
 const App = () => {
   return (
     <div>
-      <h1>helooo</h1>
+      <h1>context</h1>
+      <Todos />
+      <Form/>
     </div>
   );
 };
